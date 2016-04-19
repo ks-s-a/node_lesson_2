@@ -11,21 +11,21 @@ fs.stat('./env.js', function (err, file) {
 });
 
 // Read our file
-// fs.readFile('./fileWorks.js', function (err, data) {
-//   if (err) 
-//     throw err;
+fs.readFile('./fileWorks.js', function (err, data) {
+  if (err) 
+    throw err;
 
-//   console.log('data is: ', data);
-// });
+  console.log('data is: ', data.toString());
+});
 
 // Append data to test file
-// fs.appendFileSync('test-file.txt', 'Secret', function(err) {
-//   if (err) 
-//     throw err;
-// });
+fs.appendFile('test-file.txt', 'Secret\n', function(err) {
+  if (err) 
+    throw err;
+});
 
 // Write to test file
-// fs.writeFile('test-file.txt', 'tsss...', function(err) {
-//   if (err) 
-//     throw err;
-// });
+fs.writeFile('test-file.txt', 'tsss...', function(err) {
+  if (err) 
+    throw err;
+});

@@ -11,5 +11,5 @@ rl.write('Please, enter a command!\n');
 rl.on('line', function(cmd) {
   console.log('"' + cmd + '"? Muhaha!');
   
-  // this.close(); // close the input handling
+  this.close(); // close the input handling
 });

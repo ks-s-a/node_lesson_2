@@ -3,23 +3,36 @@ var async = require('async');
 var fs = require('fs');
 
 // File name for processing
-var FILE_NAME = 'test-file.txt'
+var FILE_NAME = 'test-file.txt';
 
 // Describe actions one by one
 async.waterfall([
-    function(callback) {
-      // Take some information about file
-      fs.stat(FILE_NAME, callback)
-    },
-    function(stat, callback) {
-      console.log('is it file? ', stat.isFile());
 
-      if ( !stat.isFile() )
-        throw new Error;
+  function(callback) {
+    // Take some information about file
+    fs.stat(FILE_NAME, callback);
+  },
 
-      // Append data to our file
-      fs.appendFile(FILE_NAME, '\nour sweety string', callback);
-    }
+  function(stat, callback) {
+    console.log('is it file? ', stat.isFile());
+
+    if ( !stat.isFile() )
+      throw new Error;
+
+    // Read our file
+    fs.readFile(FILE_NAME, callback);
+  },
+
+  function(data, callback) {
+    console.log('Data from a file: ', data.toString());
+
+    // Append data to our file
+    fs.appendFile(FILE_NAME, 'our sweety string\n', callback);
+  }
+
 ], function (err, result) {
-    console.log('OMG! Error is happend: ', err);
+  if (err) 
+    throw err;  
+  
+  console.log('all ok!');
 });

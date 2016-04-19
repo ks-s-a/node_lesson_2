@@ -1,9 +1,9 @@
 // Error handling
 
 // Uncaught exception processing
-// process.on('uncaughtException', function(err) {
-//   console.log('Are you kidding me??? This is a crazy error! : ', err);
-// });
+process.on('uncaughtException', function(err) {
+  console.error('Are you kidding me??? This is a crazy error! : ', err);
+});
 
 // Dangerous block of code
 try {
@@ -12,7 +12,7 @@ try {
 
 // Block error handling
 catch(err) {
-  console.log('err is: ', err);
+  console.error('err is: ', err);
 }
 
 // Cleaning, in any way
