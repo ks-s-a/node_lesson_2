@@ -1,21 +1,21 @@
-// Error handling
+// Обработка ошибок
 
-// Uncaught exception processing
+// Ловим необработанную ошибку
 process.on('uncaughtException', function(err) {
   console.error('Are you kidding me??? This is a crazy error! : ', err);
 });
 
-// Dangerous block of code
+// Опасный блок кода
 try {
   x.let();
 }
 
-// Block error handling
+// Обрабатываем ошибку
 catch(err) {
   console.error('err is: ', err);
 }
 
-// Cleaning, in any way
+// Выполняется в любом случае
 finally {
   console.log('Any way code...');
 }

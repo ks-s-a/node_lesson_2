@@ -1,15 +1,15 @@
-// Async examples
+// Примеры использования Async
 var async = require('async');
 var fs = require('fs');
 
-// File name for processing
+// Имя файла для обработки
 var FILE_NAME = 'test-file.txt';
 
-// Describe actions one by one
+// Описываем действия одно за другим
 async.waterfall([
 
   function(callback) {
-    // Take some information about file
+    // Получаем информацию о файле
     fs.stat(FILE_NAME, callback);
   },
 
@@ -19,20 +19,22 @@ async.waterfall([
     if ( !stat.isFile() )
       throw new Error;
 
-    // Read our file
+    // Читаем файл
     fs.readFile(FILE_NAME, callback);
   },
 
   function(data, callback) {
     console.log('Data from a file: ', data.toString());
 
-    // Append data to our file
+    // Добавляем данные в файл
     fs.appendFile(FILE_NAME, 'our sweety string\n', callback);
   }
 
-], function (err, result) {
+], function (err, result) { // Общий обработчик
+  // Ошибки на любом этапе
   if (err) 
     throw err;  
   
+  // Обработка результата
   console.log('all ok!');
 });

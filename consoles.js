@@ -1,8 +1,8 @@
-// Standart output: process.stdout
+// Стандарный выход: process.stdout
 console.log('Go to standart output!');
 
-// Error output: process.stderr
+// Стандарный поток ошибок: process.stderr
 console.error('This is an important error!');
 
-// Standart input: process.stdin
-// See the readline.js example
+// Стандартный вход: process.stdin
+// Смотри пример readline.js

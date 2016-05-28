@@ -1,10 +1,10 @@
-// process - the root object for node.js
+// process - корневой объект в node.js
 console.log('process object is: ', process);
 
-// Let see how it in ordinary way
+// Обработка аргументов скрипта стандарными средствами
 var args = process.argv;
 console.log('args is: ', args);
 
-// Let's use the mininist library
+// Использование модуля minimist
 var args = require('minimist')(process.argv.slice(2));
 console.log('args is: ', args);

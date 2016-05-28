@@ -1,7 +1,7 @@
-// File work examples
+// Работа с файловой системой
 var fs = require('fs');
 
-// Get file info
+// Получение информации о файле
 fs.stat('./env.js', function (err, file) {
   if (err) 
     throw err;
@@ -10,7 +10,7 @@ fs.stat('./env.js', function (err, file) {
   console.log('.isFile() is: ', file.isFile());
 });
 
-// Read our file
+// Чтение файла
 fs.readFile('./fileWorks.js', function (err, data) {
   if (err) 
     throw err;
@@ -18,14 +18,14 @@ fs.readFile('./fileWorks.js', function (err, data) {
   console.log('data is: ', data.toString());
 });
 
-// Append data to test file
-fs.appendFile('test-file.txt', 'Secret\n', function(err) {
+// Добавление данных к файлу
+fs.appendFile('./test-file.txt', 'Secret\n', function(err) {
   if (err) 
     throw err;
 });
 
-// Write to test file
-fs.writeFile('test-file.txt', 'tsss...', function(err) {
+// Запись в файл
+fs.writeFile('./test-file.txt', 'tsss...', function(err) {
   if (err) 
     throw err;
 });
